@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    .container-fluid {
+  background-image: url("https://svgsilh.com/svg_v2/2018617.svg");
+  Background-color: #FFC467;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+.card {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 400px;
+}
+.card .smile {
+  font-size: 50px;
+}
+.card .emojy {
+  text-align: center;
+  padding: 20px;
+}
+.card img {
+  width: 50px;
+  height: 50px;
+}
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 0;
+  transition: transform 0.2s;
+  height: 0;
+  margin-left: 0.9em;
+  margin-right: 0.9em;
+  margin-bottom: 1.2em;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0.7em solid #ffcc004a;
+  border-left: 0.3em solid transparent;
+  /* Controlls the size of the stars. */
+  font-size: 24px;
+}
+.star:hover {
+  transform: scale(1.2);
+}
+.star:before, .star:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0.6em;
+  left: -1em;
+  border-right: 1em solid transparent;
+  border-bottom: 0.7em solid #ffcc004a;
+  border-left: 1em solid transparent;
+  transform: rotate(-35deg);
+}
+.star:after {
+  transform: rotate(35deg);
+}
+
+.star-hover, .star-click {
+  border-bottom: 0.7em solid #fc0;
+}
+.star-hover:before, .star-hover:after, .star-click:before, .star-click:after {
+  border-bottom: 0.7em solid #fc0;
+}
+</style>  
+
+</head>
+  <body>
+    <div class="container-fluid">
+        <div class="card">
+          <div class="card-heading"><h1>Plz Rating Us...</h1></div>
+          <div class="card-body">
+            <div class="emojy">
+             <div class="smile">😞</div>
+              
+            </div>
+            <div class="stars">
+              <i class="star" data-src="😞"></i>
+               <i class="star" data-src="🙂"></i>
+                <i class="star" data-src="😇"></i>
+               <i class="star" data-src="😄"></i>
+               <i class="star" data-src="😍"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $(".star").hover(
+                function () {
+                    $(this).prevAll().addClass("star-hover");
+
+                    $(this).addClass("star-hover");
+                });
+            $(".stars").mouseleave(function () {
+                $(".star-hover").removeClass("star-hover");
+            });
+            $(".star").click(function () {
+                $(this).nextAll("i").removeClass("star-click");
+                $(this).addClass("star-click").prevAll().addClass("star-click")
+
+                var srcs = $(this).attr("data-src");
+                $(".smile").text(srcs).css(" transform", " scale(1.3)");
+            });
+
+        });
+    </script>
+  </body>
+</html>
